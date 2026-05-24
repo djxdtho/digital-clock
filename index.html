@@ -15,8 +15,8 @@ html,body{height:100%;overflow:hidden}
 body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;transition:background 1s ease,color .8s ease;user-select:none;-webkit-user-select:none}
 .bg-layer{position:fixed;inset:0;z-index:0;transition:opacity 1.5s ease}
 .bg-layer .ambient{position:absolute;inset:0;transition:opacity 1.5s ease}
-.bg-layer .gradient-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,var(--accent)8%,transparent 60%),radial-gradient(ellipse at 70% 80%,var(--accent2,var(--accent))6%,transparent 60%);background-size:200% 200%;background-position:0% 0%;animation:gradientDrift 16s ease-in-out infinite alternate;opacity:var(--bg-opacity)}
-@keyframes gradientDrift{0%{background-position:0% 0%}25%{background-position:50% 30%}50%{background-position:100% 100%}75%{background-position:30% 70%}100%{background-position:0% 0%}}
+.bg-layer .gradient-bg{position:absolute;inset:0;background-image:radial-gradient(ellipse,var(--accent)8%,transparent 60%),radial-gradient(ellipse,var(--accent2,var(--accent))6%,transparent 60%);background-size:200% 200%;background-position:30% 20%,70% 80%;background-repeat:no-repeat;animation:gradientDrift 16s ease-in-out infinite alternate;opacity:var(--bg-opacity)}
+@keyframes gradientDrift{0%{background-position:30% 20%,70% 80%}25%{background-position:50% 0%,50% 100%}50%{background-position:70% 80%,30% 20%}75%{background-position:20% 50%,80% 50%}100%{background-position:30% 20%,70% 80%}}
 .bg-layer .gradient-bg{animation-duration:calc(16s / var(--anim-speed, 1))}
 .bg-layer .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .particle{position:absolute;width:2px;height:2px;background:var(--accent);border-radius:50%;opacity:0;animation:particleFade calc(var(--duration,10s) * 1s) ease-in-out infinite;animation-delay:calc(var(--delay,0s) * 1s);left:calc(var(--x,50) * 1%);top:calc(var(--y,50) * 1%)}
