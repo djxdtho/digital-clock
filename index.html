@@ -29,8 +29,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 @keyframes sepPulse{0%,100%{opacity:.3}50%{opacity:.6}}
 .clock-wrap .ampm{font-size:clamp(1rem,3vw,1.6rem);font-weight:400;letter-spacing:1px;color:var(--text-dim);align-self:flex-end;margin-bottom:clamp(.6rem,2vw,1.2rem);margin-left:8px;transition:color .5s}
 .date-wrap{margin-top:clamp(4px,1vw,12px);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;letter-spacing:2px;color:var(--text-dim);transition:color .5s}
-.location-wrap{margin-top:2px;font-size:clamp(.75rem,1.5vw,1rem);font-weight:300;letter-spacing:1px;color:var(--text-dim);opacity:.66;transition:color .5s}
-.extra-wrap{display:flex;gap:16px;margin-top:clamp(8px,2vw,20px);flex-wrap:wrap;justify-content:center;font-size:clamp(.7rem,1.2vw,.85rem);color:var(--text-dim);opacity:.55;transition:color .5s}
+.location-wrap{margin-top:2px;font-size:clamp(.75rem,1.5vw,1rem);font-weight:300;letter-spacing:1px;color:var(--text-dim);transition:color .5s}
+.extra-wrap{display:flex;gap:16px;margin-top:clamp(8px,2vw,20px);flex-wrap:wrap;justify-content:center;font-size:clamp(.7rem,1.2vw,.85rem);color:var(--text-dim);transition:color .5s}
 .extra-wrap span{display:flex;align-items:center;gap:4px}
 .controls{position:fixed;bottom:clamp(16px,3vw,32px);left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px;padding:6px;background:var(--glass);backdrop-filter:blur(calc(var(--blur-amount) * 1px));-webkit-backdrop-filter:blur(calc(var(--blur-amount) * 1px));border:1px solid var(--card-border);border-radius:100px;flex-wrap:wrap;justify-content:center;transition:background .5s,border-color .5s}
 .ctrl-btn{background:none;border:none;color:var(--text-dim);padding:6px 12px;border-radius:30px;font-size:11px;font-weight:500;cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1);font-family:inherit;letter-spacing:.3px;white-space:nowrap}
@@ -173,16 +173,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
 <script>
 const themes={
-  midnight:{bg:'#0a0a0a',text:'#fff',textDim:'rgba(255,255,255,.33)',accent:'#00d4ff',card:'rgba(255,255,255,.04)',cardBorder:'rgba(255,255,255,.06)',glass:'rgba(255,255,255,.03)',accent2:'#5b0fbe'},
-  neon:{bg:'#030f1a',text:'#e0f2ff',textDim:'rgba(0,212,255,.38)',accent:'#00d4ff',card:'rgba(0,212,255,.04)',cardBorder:'rgba(0,212,255,.1)',glass:'rgba(0,212,255,.03)',accent2:'#0088cc'},
-  vaporwave:{bg:'#0a0015',text:'#f0d0ff',textDim:'rgba(200,130,255,.33)',accent:'#c876ff',card:'rgba(200,130,255,.04)',cardBorder:'rgba(200,130,255,.1)',glass:'rgba(200,130,255,.03)',accent2:'#ff6ec7'},
-  terminal:{bg:'#0d1117',text:'#3fb950',textDim:'rgba(63,185,80,.38)',accent:'#3fb950',card:'rgba(63,185,80,.04)',cardBorder:'rgba(63,185,80,.1)',glass:'rgba(63,185,80,.03)',accent2:'#1a7f37'},
-  beige:{bg:'#f5f0e8',text:'#3d352e',textDim:'rgba(61,53,46,.33)',accent:'#c4a882',card:'rgba(0,0,0,.03)',cardBorder:'rgba(0,0,0,.06)',glass:'rgba(0,0,0,.02)',accent2:'#d4b896'},
-  sunset:{bg:'#1a0f0a',text:'#ffe0c0',textDim:'rgba(255,150,80,.33)',accent:'#ff9640',card:'rgba(255,150,80,.04)',cardBorder:'rgba(255,150,80,.1)',glass:'rgba(255,150,80,.03)',accent2:'#ff6b35'},
-  amoled:{bg:'#000',text:'#fff',textDim:'rgba(255,255,255,.22)',accent:'#888',card:'rgba(255,255,255,.02)',cardBorder:'rgba(255,255,255,.04)',glass:'rgba(255,255,255,.01)',accent2:'#555'},
-  frost:{bg:'#0e1217',text:'#e8edf2',textDim:'rgba(200,215,230,.33)',accent:'#8ab4f8',card:'rgba(200,215,230,.04)',cardBorder:'rgba(200,215,230,.08)',glass:'rgba(200,215,230,.03)',accent2:'#669df6'},
-  rainy:{bg:'#0f1116',text:'#c8ccd4',textDim:'rgba(160,170,185,.38)',accent:'#6b7b8d',card:'rgba(160,170,185,.04)',cardBorder:'rgba(160,170,185,.08)',glass:'rgba(160,170,185,.03)',accent2:'#4a5568'},
-  synthwave:{bg:'#0b0a1a',text:'#ff7ac0',textDim:'rgba(255,122,192,.33)',accent:'#ff7ac0',card:'rgba(255,122,192,.04)',cardBorder:'rgba(255,122,192,.1)',glass:'rgba(255,122,192,.03)',accent2:'#6c5ce7'}
+  midnight:{bg:'#0a0a0a',text:'#fff',textDim:'rgba(255,255,255,.6)',accent:'#00d4ff',card:'rgba(255,255,255,.04)',cardBorder:'rgba(255,255,255,.06)',glass:'rgba(255,255,255,.03)',accent2:'#5b0fbe'},
+  neon:{bg:'#030f1a',text:'#e0f2ff',textDim:'rgba(0,212,255,.65)',accent:'#00d4ff',card:'rgba(0,212,255,.04)',cardBorder:'rgba(0,212,255,.1)',glass:'rgba(0,212,255,.03)',accent2:'#0088cc'},
+  vaporwave:{bg:'#0a0015',text:'#f0d0ff',textDim:'rgba(200,130,255,.6)',accent:'#c876ff',card:'rgba(200,130,255,.04)',cardBorder:'rgba(200,130,255,.1)',glass:'rgba(200,130,255,.03)',accent2:'#ff6ec7'},
+  terminal:{bg:'#0d1117',text:'#3fb950',textDim:'rgba(63,185,80,.65)',accent:'#3fb950',card:'rgba(63,185,80,.04)',cardBorder:'rgba(63,185,80,.1)',glass:'rgba(63,185,80,.03)',accent2:'#1a7f37'},
+  beige:{bg:'#f5f0e8',text:'#3d352e',textDim:'rgba(61,53,46,.6)',accent:'#c4a882',card:'rgba(0,0,0,.03)',cardBorder:'rgba(0,0,0,.06)',glass:'rgba(0,0,0,.02)',accent2:'#d4b896'},
+  sunset:{bg:'#1a0f0a',text:'#ffe0c0',textDim:'rgba(255,150,80,.6)',accent:'#ff9640',card:'rgba(255,150,80,.04)',cardBorder:'rgba(255,150,80,.1)',glass:'rgba(255,150,80,.03)',accent2:'#ff6b35'},
+  amoled:{bg:'#000',text:'#fff',textDim:'rgba(255,255,255,.5)',accent:'#888',card:'rgba(255,255,255,.02)',cardBorder:'rgba(255,255,255,.04)',glass:'rgba(255,255,255,.01)',accent2:'#555'},
+  frost:{bg:'#0e1217',text:'#e8edf2',textDim:'rgba(200,215,230,.6)',accent:'#8ab4f8',card:'rgba(200,215,230,.04)',cardBorder:'rgba(200,215,230,.08)',glass:'rgba(200,215,230,.03)',accent2:'#669df6'},
+  rainy:{bg:'#0f1116',text:'#c8ccd4',textDim:'rgba(160,170,185,.65)',accent:'#6b7b8d',card:'rgba(160,170,185,.04)',cardBorder:'rgba(160,170,185,.08)',glass:'rgba(160,170,185,.03)',accent2:'#4a5568'},
+  synthwave:{bg:'#0b0a1a',text:'#ff7ac0',textDim:'rgba(255,122,192,.6)',accent:'#ff7ac0',card:'rgba(255,122,192,.04)',cardBorder:'rgba(255,122,192,.1)',glass:'rgba(255,122,192,.03)',accent2:'#6c5ce7'}
 };
 
 let currentTheme='midnight';
