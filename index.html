@@ -6,16 +6,18 @@
 <meta name="description" content="A calming, futuristic digital clock experience.">
 <meta name="theme-color" content="#0a0a0a">
 <title>clock — AA Elements</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
-<link rel="manifest" href="data:application/json,{'name':'clock','start_url':'.','display':'standalone','background_color':'#0a0a0a','icons':[{'src':'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>','sizes':'any','type':'image/svg+xml'}]}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='url(%23g)' stroke-width='4'/%3E%3Cline x1='50' y1='50' x2='50' y2='22' stroke='url(%23g)' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='50' y1='50' x2='70' y2='50' stroke='url(%23g)' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='4' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="manifest" href="data:application/json,{'name':'clock','start_url':'.','display':'standalone','background_color':'#0a0a0a','icons':[{'src':'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 stop-color=%27%2300d4ff%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%238b5cf6%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2745%27 fill=%27none%27 stroke=%27url(%23g)%27 stroke-width=%274%27/%3E%3Cline x1=%2750%27 y1=%2750%27 x2=%2750%27 y2=%2722%27 stroke=%27url(%23g)%27 stroke-width=%274%27 stroke-linecap=%27round%27/%3E%3Cline x1=%2750%27 y1=%2750%27 x2=%2770%27 y2=%2750%27 stroke=%27url(%23g)%27 stroke-width=%274%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%274%27 fill=%27url(%23g)%27/%3E%3C/svg%3E','sizes':'any','type':'image/svg+xml'}]}">
 <style>
-:root{--bg:#0a0a0a;--text:#fff;--text-dim:rgba(255,255,255,.33);--accent:#00d4ff;--glow:0 0 120px rgba(0,212,255,.08);--card:rgba(255,255,255,.04);--card-border:rgba(255,255,255,.06);--glass:rgba(255,255,255,.03);--radius:16px;--font:'Inter',system-ui,-apple-system,sans-serif;--clock-font:'Inter',system-ui,-apple-system,sans-serif;--blur-amount:24px;--glow-intensity:1;--shadow-softness:1;--anim-speed:1;--bg-opacity:1;--font-scale:1}
+:root{--bg:#0a0a0a;--text:#fff;--text-dim:rgba(255,255,255,.33);--accent:#00d4ff;--glow:0 0 120px rgba(0,212,255,.08);--card:rgba(255,255,255,.04);--card-border:rgba(255,255,255,.06);--glass:rgba(255,255,255,.03);--radius:16px;--font:'Inter',system-ui,-apple-system,sans-serif;--clock-font:'Inter',system-ui,-apple-system,sans-serif;--blur-amount:24px;--glow-intensity:1;--anim-speed:1;--bg-opacity:1;--font-scale:1}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
 body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;transition:background 1s ease,color .8s ease;user-select:none;-webkit-user-select:none}
 .bg-layer{position:fixed;inset:0;z-index:0;transition:opacity 1.5s ease}
 .bg-layer .ambient{position:absolute;inset:0;transition:opacity 1.5s ease}
-.bg-layer .gradient-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,var(--accent)8%,transparent 60%),radial-gradient(ellipse at 70% 80%,var(--accent2,var(--accent))6%,transparent 60%);opacity:var(--bg-opacity)}
+.bg-layer .gradient-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,var(--accent)8%,transparent 60%),radial-gradient(ellipse at 70% 80%,var(--accent2,var(--accent))6%,transparent 60%);background-size:200% 200%;background-position:0% 0%;animation:gradientDrift 16s ease-in-out infinite alternate;opacity:var(--bg-opacity)}
+@keyframes gradientDrift{0%{background-position:0% 0%}25%{background-position:50% 30%}50%{background-position:100% 100%}75%{background-position:30% 70%}100%{background-position:0% 0%}}
+.bg-layer .gradient-bg{animation-duration:calc(16s / var(--anim-speed, 1))}
 .bg-layer .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .particle{position:absolute;width:2px;height:2px;background:var(--accent);border-radius:50%;opacity:0;animation:particleFade calc(var(--duration,10s) * 1s) ease-in-out infinite;animation-delay:calc(var(--delay,0s) * 1s);left:calc(var(--x,50) * 1%);top:calc(var(--y,50) * 1%)}
 @keyframes particleFade{0%,100%{opacity:0;transform:translateY(0) scale(0)}20%{opacity:.4}40%{opacity:.6;transform:translateY(-30px) scale(1)}80%{opacity:.2}100%{opacity:0;transform:translateY(-60px) scale(0)}}
@@ -86,7 +88,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="digit-group" id="hourGroup"></div>
     <div class="digit sep">:</div>
     <div class="digit-group" id="minGroup"></div>
-    <div class="digit sep">:</div>
+    <div class="digit sep" id="secSep">:</div>
     <div class="digit-group" id="secGroup"></div>
     <span class="ampm" id="ampm">PM</span>
   </div>
@@ -101,7 +103,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 <div class="controls" id="controls">
   <button class="ctrl-btn icon" id="themeToggleBtn" title="Themes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.83-.13 2.68-.38C16.4 20.1 18 18.1 18 15.5c0-1.5-.6-2.8-1.5-3.7C15.6 10.8 15 9.5 15 8c0-2.5 2-4.5 4.5-4.5 1.2 0 2.3.45 3.1 1.2C21 2.8 16.8 2 12 2z"/></svg></button>
   <button class="ctrl-btn" id="formatToggle">24h</button>
-  <button class="ctrl-btn" id="secondsToggle" class="active">Sec</button>
+  <button class="ctrl-btn active" id="secondsToggle">Sec</button>
   <button class="ctrl-btn icon" id="fullscreenBtn" title="Fullscreen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
   <button class="ctrl-btn icon" id="settingsBtn" title="Settings"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
 </div>
@@ -157,14 +159,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="settings-group">
       <label>Clock Alignment</label>
       <div class="toggle-wrap">
-        <button class="toggle-btn active" data-align="left">Left</button>
-        <button class="toggle-btn" data-align="center">Center</button>
+        <button class="toggle-btn active" data-align="center">Center</button>
+        <button class="toggle-btn" data-align="left">Left</button>
         <button class="toggle-btn" data-align="right">Right</button>
       </div>
     </div>
     <div class="settings-group" style="margin-bottom:0">
-      <label>Shadow Softness</label>
-      <input type="range" id="shadowRange" min="0" max="200" value="100">
+      <label>Animation Speed</label>
+      <input type="range" id="speedRange" min="50" max="300" value="100">
     </div>
   </div>
 </div>
@@ -209,7 +211,7 @@ const fontSizeRange=document.getElementById('fontSizeRange');
 const glowRange=document.getElementById('glowRange');
 const blurRange=document.getElementById('blurRange');
 const opacityRange=document.getElementById('opacityRange');
-const shadowRange=document.getElementById('shadowRange');
+const speedRange=document.getElementById('speedRange');
 
 function applyTheme(name){
   const t=themes[name];
@@ -257,8 +259,8 @@ function updateClock(){
   if(!use24h){h=h%12||12}
   renderDigits(hourGroup,h);
   renderDigits(minGroup,m);
-  if(showSeconds){renderDigits(secGroup,s);secGroup.parentElement.style.display=''}
-  else{secGroup.parentElement.style.display='none'}
+  if(showSeconds){renderDigits(secGroup,s);secGroup.style.display='';document.getElementById('secSep').style.display=''}
+  else{secGroup.style.display='none';document.getElementById('secSep').style.display='none'}
   ampmEl.textContent=use24h?'':ampm;
   const opts={weekday:'long',month:'long',day:'numeric'};
   dateWrap.textContent=now.toLocaleDateString('en-US',opts);
@@ -342,8 +344,10 @@ document.querySelectorAll('[data-align]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('[data-align]').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('clockWrap').style.textAlign=btn.dataset.align;
-    localStorage.setItem('clock-align',btn.dataset.align);
+    const align=btn.dataset.align;
+    document.getElementById('clockWrap').style.justifyContent=align==='left'?'flex-start':align==='right'?'flex-end':'center';
+    document.getElementById('container').style.alignItems=align==='left'?'flex-start':align==='right'?'flex-end':'center';
+    localStorage.setItem('clock-align',align);
   });
 });
 
@@ -374,40 +378,20 @@ opacityRange.addEventListener('input',()=>{
   localStorage.setItem('clock-opacity',opacityRange.value);
 });
 
-shadowRange.addEventListener('input',()=>{
-  document.documentElement.style.setProperty('--shadow-softness',shadowRange.value/100);
-  localStorage.setItem('clock-shadow',shadowRange.value);
+speedRange.addEventListener('input',()=>{
+  document.documentElement.style.setProperty('--anim-speed',speedRange.value/100);
+  localStorage.setItem('clock-speed',speedRange.value);
 });
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='f'||e.key==='F')toggleFullscreen();
-  if(e.key==='Escape'&&settingsOverlay.classList.contains('open'))settingsOverlay.classList.remove('open');
-  if(e.key==='t'||e.key==='T')themePanel.classList.toggle('hidden');
-});
 
-function loadSettings(){
-  const theme=localStorage.getItem('clock-theme');
-  if(theme&&themes[theme])applyTheme(theme);
-  const h24=localStorage.getItem('clock-24h');
-  if(h24!==null){use24h=h24==='true';formatToggle.textContent=use24h?'24h':'12h'}
-  const sec=localStorage.getItem('clock-seconds');
-  if(sec!==null){showSeconds=sec==='true';secondsToggle.classList.toggle('active',showSeconds)}
-  const font=localStorage.getItem('clock-font');
-  if(font){fontSelect.value=font;document.documentElement.style.setProperty('--clock-font',font)}
-  const fs=localStorage.getItem('clock-font-scale');
-  if(fs){fontSizeRange.value=fs;document.documentElement.style.setProperty('--font-scale',fs/100)}
-  const glow=localStorage.getItem('clock-glow');
-  if(glow){glowRange.value=glow;document.documentElement.style.setProperty('--glow-intensity',glow/100)}
-  const blur=localStorage.getItem('clock-blur');
-  if(blur){blurRange.value=blur;document.documentElement.style.setProperty('--blur-amount',blur)}
-  const op=localStorage.getItem('clock-opacity');
-  if(op){opacityRange.value=op;document.documentElement.style.setProperty('--bg-opacity',op/100)}
-  const sh=localStorage.getItem('clock-shadow');
-  if(sh){shadowRange.value=sh;document.documentElement.style.setProperty('--shadow-softness',sh/100)}
+
+  const sp=localStorage.getItem('clock-speed');
+  if(sp){speedRange.value=sp;document.documentElement.style.setProperty('--anim-speed',sp/100)}
   const align=localStorage.getItem('clock-align');
   if(align){
     document.querySelectorAll('[data-align]').forEach(b=>b.classList.toggle('active',b.dataset.align===align));
-    document.getElementById('clockWrap').style.textAlign=align;
+    document.getElementById('clockWrap').style.justifyContent=align==='left'?'flex-start':align==='right'?'flex-end':'center';
+    document.getElementById('container').style.alignItems=align==='left'?'flex-start':align==='right'?'flex-end':'center';
   }
 }
 
