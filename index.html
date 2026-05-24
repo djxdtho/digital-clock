@@ -383,8 +383,24 @@ speedRange.addEventListener('input',()=>{
   localStorage.setItem('clock-speed',speedRange.value);
 });
 
-
-
+function loadSettings(){
+  const theme=localStorage.getItem('clock-theme');
+  if(theme&&themes[theme])applyTheme(theme);
+  const h24=localStorage.getItem('clock-24h');
+  if(h24!==null){use24h=h24==='true';formatToggle.textContent=use24h?'24h':'12h'}
+  const sec=localStorage.getItem('clock-seconds');
+  if(sec!==null){showSeconds=sec==='true'}
+  secondsToggle.classList.toggle('active',showSeconds);
+  const font=localStorage.getItem('clock-font');
+  if(font){fontSelect.value=font;document.documentElement.style.setProperty('--clock-font',font)}
+  const fs=localStorage.getItem('clock-font-scale');
+  if(fs){fontSizeRange.value=fs;document.documentElement.style.setProperty('--font-scale',fs/100)}
+  const glow=localStorage.getItem('clock-glow');
+  if(glow){glowRange.value=glow;document.documentElement.style.setProperty('--glow-intensity',glow/100)}
+  const blur=localStorage.getItem('clock-blur');
+  if(blur){blurRange.value=blur;document.documentElement.style.setProperty('--blur-amount',blur)}
+  const op=localStorage.getItem('clock-opacity');
+  if(op){opacityRange.value=op;document.documentElement.style.setProperty('--bg-opacity',op/100)}
   const sp=localStorage.getItem('clock-speed');
   if(sp){speedRange.value=sp;document.documentElement.style.setProperty('--anim-speed',sp/100)}
   const align=localStorage.getItem('clock-align');
